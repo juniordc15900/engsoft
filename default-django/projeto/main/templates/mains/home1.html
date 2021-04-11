@@ -1,8 +1,32 @@
 {% extends "base.html" %}
 {% block main_content %}
     {% load static %}
-    {% include "includes/loadings/loading1.html" %}
-    {% include "includes/cookies/cookie1.html" %}
     <main class="index">
+        <div class="container-fluid diario d-flex flex-column align-items-center justify-content-around">
+            <div class="row p-5">
+                <div class="col-12">
+                    <h1> Diário Eletronico </h1>
+                </div>
+            </div>
+            <div class="row p-5">
+                <h2>Menu Registrar:</h2>
+            </div>
+            <div class="row p-5">
+                <div class="col-6 p-5">
+                    <a href="/registrar-aula"><button type="button" class="btn btn-dark">Registrar Aula</button></a>
+                </div>
+                <div class="col-6 p-5">
+                    <a href="/registrar-atividade"><button type="button" class="btn btn-dark">Registrar Atividade</button></a>
+                </div>
+            </div>
+            <div class="row p-5">
+                <div class="col-6 p-5">
+                    <a href="/listar-aulas"><button type="button" class="btn btn-dark">Listar Aulas</button></a>
+                </div>
+                <div class="col-6 p-5">
+                    <a href="/listar-atividades"><button type="button" class="btn btn-dark">Listar Atividades</button></a>
+                </div>
+            </div>
+        </div>
     </main>
 {% endblock %}

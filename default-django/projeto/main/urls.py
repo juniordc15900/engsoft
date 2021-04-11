@@ -10,16 +10,16 @@ sitemaps = {
 }
 
 urlpatterns = [
-    # Navegação #
+    # Navegação # 
     path('',views.index,name='home'),
-    path('contact/',views.contact,name='contact'),
-    path('about/',views.about,name='about'),   
-    
-    # Paginas especiais #
-    path('admin/', admin.site.urls),
-    path('terms-of-use', views.document,{"type_model":"TERMOS DE USO"}),
-    path('privacy-policy', views.document,{"type_model":"POLÍTICA DE PRIVACIDADE"}),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap'),
+    path('menu/',views.index,name='home'),
+    path('registrar-aula/',views.registerAula,name='atividade'),
+    path('registrar-atividade/',views.registerAtividade,name='aula'),
+    path('listar-aulas/',views.listaAulas,name='aulas'),
+    path('listar-atividades/',views.listaAtividades,name='atividades'),
+    path('delete/<str:delete_type>/<str:delete_pk>/',views.delete, name='delete'),
+    path('edit/<str:edit_type>/<str:edit_pk>/',views.edit, name='edit'),
+
 ]
 
 handler404 = views.error_404

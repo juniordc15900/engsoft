@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block main_content %}
+{% load static %}
+<div class="container-fluid listar p-5">
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Matéria</th>
+                <th scope="col">Data</th>
+                <th scope="col">Professor</th>
+                <th scope="col">Opções</th>
+            </tr>
+            </thead>
+            {% for aula in aulas %}
+                <tbody>
+                <tr>
+                    <th scope="row">{{aula.materia}}</th>
+                    <td>{{aula.date}}</td>
+                    <td>{{aula.professor}}</td>
+                    <td><a href="/edit/aula/{{aula.pk}}"><button type="submit" class="btn btn-dark">EDITAR</a><a href="/delete/aula/{{aula.pk}}"><button type="submit" class="btn btn-danger mx-2">EXCLUIR</a></td>
+                </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+        <a href="/menu"><button type="submit" class="btn btn-primary">Voltar</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block main_content %}
+{% load static %}
+<div class="container-fluid edit d-flex flex-column align-items-center justify-content-around p-5">
+    <div class="row p-5">
+        <div class="col-12">
+            <h1>Editar:</h1>
+        </div>
+    </div>
+    {% if tipo == 1 %}
+        <div class="row">
+            <div class="col-12">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Matéria:</label>
+                        <input type="text" class="form-control" name="materia" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Quantidade de Questões:</label>
+                        <input type="number" class="form-control" name="questoes" placeholder="">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <label for="inputAddress">Valor da Atividade:</label>
+                    <input type="text" class="form-control" name="valor" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Professor:</label>
+                        <input type="text" class="form-control" name="professor" placeholder="">
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="edit">Editar Atividade</button>
+                </form>
+            </div>
+            <div class="col-12 p-3">
+                {{message}}
+            </div>
+        </div>
+        <a href="/listar-atividades"><button type="submit" class="btn btn-primary">Voltar</a>
+    {% endif %}
+    {% if tipo == 2 %}
+        <div class="row">
+            <div class="col-12">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Matéria:</label>
+                        <input type="text" class="form-control" name="materia" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Data:</label>
+                        <input type="date" class="form-control" name="date" placeholder="">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <label for="inputAddress">Professor:</label>
+                    <input type="text" class="form-control" name="professor" placeholder="">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Editar Aula</button>
+                </form>
+            </div>
+            <div class="col-12 p-3">
+                {{message}}
+            </div>
+        </div>
+        <a href="/listar-aulas"><button type="submit" class="btn btn-primary">Voltar</a>
+    {% endif %}
+</div>
+{% endblock %}
